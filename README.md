@@ -1,2 +1,2 @@
-# BFU_FirstCourse_LabWork_1
+# BFU_LaboratoryWorks
 the first laboratory work in university
