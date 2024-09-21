@@ -19,8 +19,11 @@ int main()
 	}
 	cout << "Введите номер бита i: ";
 	cin >> i;
-	short size_x = ceil(log2(x));
-	y = x | (1 << (size_x - i));
+	short size_x = floor(log2(x)) + 1;
+	if ((size_x - i) != 0)
+		y = x | (1 << (size_x - i));
+	else
+		y = x | 1;
 	cout << "Двоичное 32 разрядное представление исходного числа:" << '\t' 
 	<< '\t' << bitset<32>(x) << endl;
 	cout << "Двоичное 32 разрядное представление числа, с измененным битом:  " << bitset<32>(y) << endl;
