@@ -11,7 +11,6 @@ int main()
     int min_x = INT32_MAX;
     int min_ind = -1;
     int sum_of_els = 0;
-    bool flag = false;
     cout << "1) Введите количетсво элементов последовательности j: ";
     cin >> j;
     cout << "Введите значения элементов полседовательности: ";
@@ -20,7 +19,6 @@ int main()
         cin >> x;
         if ((x % 3 == 0) || (x % 7 == 0))
         {
-            flag = true;
             sum_of_els += x;
             if (x < min_x)
             {
@@ -29,7 +27,7 @@ int main()
             }
         }
     }
-    if (flag)
+    if (min_ind != -1)
     {
         cout << "Сумма элементов, делящихся на 3 или на 7: " << sum_of_els << endl;
         cout << "Минимальный элемент последовательности, делящийся на 3 или на 7: " << min_x << endl;
@@ -50,5 +48,7 @@ int main()
             p *= numeral;
         N /= 10;
     }
+    if (p == 1)
+        p = 0;
     cout << "Произведение чётных цифр числа: " << p;
 }
