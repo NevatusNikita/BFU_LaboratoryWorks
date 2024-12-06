@@ -7,4 +7,4 @@ void Write(int matrix[N][N], int& n);
 int sumOfDigits(int n);
 int maxMatrixElem(int matrix[N][N], int& n);
 int minMatrixElem(int matrix[N][N], int& n);
-int matrixSort(int matrix[N][N], int& n);
+void matrixSort(int matrix[N][N], int& n);

@@ -68,7 +68,7 @@ int minMatrixElem(int matrix[N][N], int& n)
     return min;
 }
 
-int matrixSort(int matrix[N][N], int& n)
+void matrixSort(int matrix[N][N], int& n)
 {
     int sumOfColumns[N];
     for (int j = 0; j < n; j++)
@@ -88,5 +88,4 @@ int matrixSort(int matrix[N][N], int& n)
             }
         }
     }
-    return 0;
 }

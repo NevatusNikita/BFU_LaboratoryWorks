@@ -28,7 +28,7 @@ void Sort(int data[], int size)
     }
 }
 
-int sum_of_numerals(int y)
+int sum_of_digits(int y)
 {
     int sum = 0;
     while (y > 0)
@@ -53,6 +53,8 @@ int min_numeral(int y)
 
 bool same_digits(int c)
 {
+    if (c < 9)
+        return true;
     while (c > 0)
     {
         int last_digit_1 = c % 10;
@@ -73,10 +75,10 @@ int main()
 {
     setlocale(0, "");
     //1
-    int n, x, c = 0, data[10000];
-    std::cout << "1) Введите размер массива: ";
+    /*int n, x, c = 0, data[10000];
+    std::cout << "1) пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
     std::cin >> n;
-    std::cout << "Введтие элементы массива: ";
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
     for (int k = 0; k < n; ++k)
     {
         std::cin >> data[k];
@@ -92,9 +94,9 @@ int main()
     std::cout << std::endl << std::endl;
     //2
     int numbers[1000], sums[1000];
-    std::cout << "2) Введите размер массива: ";
+    std::cout << "2) пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
     std::cin >> n;
-    std::cout << "Введтие элементы массива: ";
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
     for (int k = 0; k < n; ++k)
     {
         std::cin >> numbers[k];
@@ -135,9 +137,9 @@ int main()
     std::cout << std::endl << std::endl;
     //3
     int m, ans_column = -1, ans_max = 0, matrix[100][100];
-    std::cout << "3) Введите размер мтарицы: ";
+    std::cout << "3) пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
     std::cin >> n >> m;
-    std::cout << "Введтие элементы матрицы: ";
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
     std::vector<int> products_of_column(m);
     for (int k = 0; k < m; ++k)
         products_of_column[k] = 1;
@@ -168,26 +170,35 @@ int main()
             }
         std::cout << std::endl;
     }
-    std::cout << std::endl << std::endl;
+    std::cout << std::endl << std::endl;*/
     //4
-    int A[10000], j = 0;
-    std::cout << "4) Введите количетсво элементов последовательноси: ";
+    int x, n, k = 0;
+    int A[20000];
+    std::cout << "4) Введите количество элементов массива: ";
     std::cin >> n;
-    std::cout << "Введите элементы последовательноси: ";
+    std::cout << "Введите элементы массива: ";
     for (int i = 0; i < n; ++i)
     {
-        std::cin >> x;
-        if (sum_of_numerals(x) % 7 != 0)
+        std::cin >> A[i];
+    }
+    for (int i = 0; i < n; ++i)
+    {
+        if (sum_of_digits(A[i]) % 7 == 0)
+            continue;
+        A[k] = A[i];
+        k++;
+    }
+    n = k;
+    for (int i = 0; i < n; ++i)
+    {
+        if (same_digits(A[i]))
         {
-            A[j] = x;
-            j += 1;
-            if (same_digits(x) || (x < 10))
-            {
-                A[j] = x;
-                j += 1;
-            }
+            for (int j = n; j > i; --j)
+               A[j] = A[j - 1];
+            n++;
+            i++;
         }
     }
-    for (int i = 0; i < j; ++i)
+    for (int i = 0; i < n; ++i)
         std::cout << A[i] << " ";
 }
