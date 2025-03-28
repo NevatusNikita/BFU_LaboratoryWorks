@@ -1,0 +1,36 @@
+{
+    "movies": [
+      {
+        "title": "The Matrix",
+        "year": "1999",
+        "cast": [
+          {
+            "name": "Keanu Reeves",
+            "role": "Neo"
+          },
+          {
+            "name": "Laurence Fishburne",
+            "role": "Morpheus"
+          },
+          {
+            "name": "Carrie-Anne Moss"
+          }
+        ]
+      },
+      {
+        "title": "Lord of the Rings",
+        "cast": [
+          {
+            "name": "Elijah Wood",
+            "role": "Frodo"
+          },
+          {
+            "name": "Ian McKellen",
+            "role": "Gandalf",
+            "age": 84
+          }
+        ]
+      }
+    ],
+    "extra_field": "This shouldn't be here"
+  }
